@@ -1,0 +1,606 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body{
+    background-color: #444;
+    font-family:  'Lilita One', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*overflow: hidden;;*/
+}
+
+button:hover,
+a:hover{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+@media (min-width:992px){ 
+    .hide-desktop{
+        display: none;
+    }
+}
+
+.loading-screen{
+
+   width: 100vw;
+   height: 100vh;
+   background:linear-gradient(to bottom right , rgb(121, 121, 121) , rgb(49, 49, 49));
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+  
+
+}
+
+.loading-icon{
+    width: 300px;
+    height: 300px;
+    border:red 3px solid;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-radius: 50%;
+    position: absolute; 
+     top: 50%;
+     left: 50%;
+    transform: translate(-50%,-50%);
+    animation: rotate-around 2s linear infinite;
+   
+}
+
+@keyframes rotate-around{
+    0%{
+        transform:translate(-50%,-50%) rotateZ(0deg) ;
+    }
+
+    100%{
+        transform:translate(-50%,-50%) rotateZ(360deg) ;
+        
+    }
+}
+
+
+
+/* Start Nav */
+
+nav{
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    padding: 20px;
+    background-color: #222;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .group{
+    width: 50%;
+    position: absolute;
+    left: -50%;
+    top: 50px;
+    transition: left .5s ease-in-out;
+}
+
+nav .group.show{
+    left: 0;
+}
+
+nav .group a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #777;
+    font-size: 1.2em;
+}
+
+
+nav .group a:link,
+nav .group a:visited{
+color: #FFF;
+}
+nav .group a:hover{
+    background-color: #DDD;
+    color: red;
+}
+
+nav .group a:last-of-type{
+    color: red;
+    background-color: rgb(187, 187, 187);
+    font-weight: bold;
+}
+
+nav .group a:last-of-type:hover{
+    font-size: 1.4em;
+}
+
+
+nav i{
+    color: #FFF;
+}
+
+nav span{
+    flex-basis: 20%;
+    color : red;
+    font-size: 1.4em;
+    white-space: nowrap;
+    margin-right: 30px;
+    font-weight: bold;
+    text-shadow: 2px 3px 10px  #999;
+    padding: 10px;
+    
+}
+
+@media (min-width:992px){ 
+
+    nav{
+        position: static;
+    }
+    nav .group{
+        position: static;
+        flex-basis: 70%;
+        transition: all 1s ease-in-out;
+        display: flex;
+    }
+
+    nav .group a{
+        display: inline-block;
+        width: initial;
+        text-align: center;
+        padding: 20px;
+        background-color: inherit;
+        font-size: 1.2em;
+        transition:  background-color .5s linear;
+    }
+
+    nav .group a:hover{
+        background-color: rgba(189, 189, 189, 0.4);
+        color: red;
+        font-weight: bold;
+    }
+
+    nav .group a:last-of-type{
+        color: #FFF;
+        background-color: rgb(255, 0, 0);
+        border-radius: 15px;
+        font-weight: bold;
+        margin-left: 30px;
+        transition: all .5s ease-in-out;
+    }
+    
+    nav .group a:last-of-type:hover{
+        transform: scale(1.2 , 1.2);
+        background-color: rgb(255, 60, 60);
+        box-shadow: 0 0 10px white;
+    }
+
+    nav span{
+        font-size: 2em;
+    }
+    
+}
+
+
+
+/* End Nav */
+
+/* Start Header */
+
+header{
+    width: 100%;
+    height: 720px;
+    position: relative;
+}
+
+header .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;;
+    background-image: url('../images/showcase.jpg');
+    background-position: center;
+    background-size: cover;
+}
+header .overlay h2{
+    color: #FFF;
+    width: 60%;
+    margin: 200px auto;
+    white-space: nowrap;
+    font-size: 300%;
+    text-align: center;
+    text-shadow: 0 0 30px red;
+}
+/* End Header */
+
+/* Start World */
+
+.world{
+    width: 100%;
+    background-color: #111;
+    margin: 0;
+    padding: 100px 0;
+    overflow: hidden;;
+}
+
+.world > h2{
+    text-align: center;
+    color: #FFF;
+    margin: 0;
+    padding: 50px 10px 40px;
+    
+}
+
+.world .group{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.world .group .map{
+    margin-top: 40px;
+    padding-bottom: 50px;
+    border-bottom: 3px dashed red;
+}
+
+.world .group .map .image{
+   width: 100%;
+
+}
+
+
+.world .group .map h2{
+    text-align: center;
+    color: #FFF;
+    text-shadow: 0 0 20px red
+}
+
+.world img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.world .group .map p{
+    color: #FFF;
+    font-size: 1.3em;
+    padding: 20px;
+    line-height: 1.3em;
+}
+
+@media (min-width:992px){
+    .world .group .map{
+        display: flex;
+        justify-content: space-between;
+    }
+    .world .group .map >div{
+        flex-basis: 40%;
+    }
+
+    .world .group .map:nth-of-type(even){
+        flex-direction: row-reverse;
+    }
+    .world .group .map .image{
+        transition: all 1s;
+    }
+
+    .world .group .map .image:hover{
+        transform: scale(1.3,1.3);
+        box-shadow: 0 0 20px #FFF;
+    }
+}
+
+
+/* End World */
+
+/* Start Characters */
+
+.characters{
+    margin: 0;
+    width: 100%; 
+    background:   linear-gradient(to right , rgba(0, 112, 0, 0.5) , rgba(233, 8, 8, 0.5)), url('../images/bg 1.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 40px;
+}
+
+.characters > h2{
+    color:#FFF;
+    text-align: center;
+    font-size: 200%;
+    padding-top: 40px;
+    margin: 0 auto;
+    text-shadow: 0 0 15px red;
+}
+
+.characters .slides{
+    width: 90%;
+    height: 500px;
+    margin: 60px auto 0;
+    border:solid 5px #FFF;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.characters .slides .slide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+}
+
+.characters .slides .slide >div{
+    flex-basis: 50%;
+    height: 100%; 
+}
+
+.characters .slides .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background:linear-gradient(to bottom right , rgba(2, 20, 77, 0.664) , rgba(194, 33, 33, 0.993));
+    object-position: center center;
+}
+.characters .slides .slide p{
+    background-color: #222;
+    margin: 0;
+    flex-basis: 50%;
+    color: #FFF;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 2em;
+    padding: 5%;
+    text-align: center;
+}
+
+.characters .slides button{
+    background-color: inherit;
+    color: #FFF;
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid #FFF;
+}
+
+.characters .slides button:hover{
+    background-color:rgba(255, 0, 0, 0.5); 
+}
+
+.characters .slides button:active{
+    background-color:rgba(255, 0, 0, 0.9); 
+}
+
+ .characters .slides button:first-of-type{
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+
+.characters .slides button:last-of-type{
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+/* End Characters */
+
+/* Start Enemies */
+
+.enemies{
+    width: 100%;
+    background: #111;
+    padding: 50px 20px;
+    background:linear-gradient(to bottom right , rgba(0, 0, 0, 0.4) , rgba(0, 0, 8, 0.8)), url('../images/bg\ 2.jpg');
+    background-size: cover;
+    background-position: right center
+}
+
+.enemies >h2{
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 0 10px red;
+    font-size: 2em;
+    margin: 0;
+    padding: 20px 0 40px;
+}
+
+.enemies .group{
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    perspective: 2000px;
+
+}
+
+.enemies .group .enemy{
+background-color: rgb(24, 24, 24);
+border: solid 2px red;
+border-radius: 30px;
+width: 280px;
+height: 400px;
+position: relative;
+transform-style: preserve-3d;
+transition: all .8s ease-in-out;
+margin-bottom: 35px;
+}
+
+.enemies .group .enemy:hover,
+.enemies .group .enemy:active {
+    transform: rotateY(180deg);
+    perspective-origin: center;
+}
+
+
+.enemies .group .enemy .front  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 2;
+}
+
+.enemies .group .enemy .back  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px ;
+    overflow: hidden;
+    color: #FFF;
+    line-height: 2em;
+    font-size: 1.3em;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.enemies .group .enemy .front img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* End Enemies */
+
+
+
+/* Start Weapons */
+
+.weapons{
+    width: 100%;
+    padding: 60px 0 170px;
+    background: linear-gradient(to bottom right, rgba(95, 95, 95, 0.3) , rgba(1,1,1,.8)), url('../images/bg\ 3.jpg');
+    background-size: cover;
+}
+
+.weapons >h2{
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 0 10px red;
+    font-size: 2em;
+    margin: 0;
+    padding: 20px 0 40px;
+}
+
+.weapons .group{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.weapons .group .weapon{
+    
+    width: 400px;
+    height: 300px;
+    background:linear-gradient(to right bottom,rgb(0, 0, 0) , rgb(41, 37, 37));
+    border-radius: 20px;
+    position: relative;
+    margin: 0 20px 40px;
+    border: 3px solid white;
+    
+}
+
+
+.weapons .group .weapon>div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.weapons .group .weapon>div img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    object-position: center;
+}
+
+.weapons .group .weapon>div:last-of-type{
+    height: 100%;
+    background: linear-gradient(rgba(231, 0, 0, 0.788) , rgba(1,1,1,1));
+    overflow: hidden;
+    color:#FFF;
+    line-height: 3em;
+    font-size: 1.4em;
+    padding: 20px 20px ;
+    border-radius: 20px;
+}
+
+
+
+
+/* End Weapons */
+
+
+/* Start footer */
+
+footer{
+    background-color: #111;
+    text-align: center;
+    color: #FFF;
+    padding: 45px 0 55px;
+}
+
+footer h2{
+    text-shadow: 0 0 20px red;
+    margin-bottom: 50px;
+}
+
+footer button{
+    color: #FFF;
+    border: none;
+    padding: 33px;
+    background-color: red;
+    font-size: 1.6em;
+    border-radius: 15px;
+    transition-duration: .5s;
+    text-shadow: 3px 3px 10px #222;
+}
+footer button:hover{
+    background-color: rgb(219, 0, 0);
+    box-shadow: 0 0 20px #FFF;
+    font-size: 1.7em;
+}
+
+footer h3{
+    text-shadow: 0 0 20px white;
+}
+
+footer h3:first-of-type{
+    margin-top: 150px;
+}
+
+/* End footer */
+
+/*
+@media (max-width:767px){
+}
+
+@media (min-width:768px){ 
+}
+
+@media (min-width:992px){
+}
+
+@media (min-width:1200px){ 
+} 
+
+yellow color :#fed136
+*/
